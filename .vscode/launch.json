@@ -1,17 +1,20 @@
 {
 	"version": "0.2.0",
-	"configurations": [{
-			"name": "Run Extension",
+	"configurations": [
+        {
 			"type": "extensionHost",
 			"request": "launch",
+			"name": "Launch Client",
 			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
-			],
+			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
 			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
+				"${workspaceRoot}/client/out/**/*.js"
 			],
-			"preLaunchTask": "npm: watch"
+			"autoAttachChildProcesses": true,
+			"preLaunchTask": {
+				"type": "npm",
+				"script": "watch"
+			}
 		}
 	]
 }
