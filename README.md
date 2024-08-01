@@ -5,6 +5,8 @@
 ├── client // Language Client
 │   ├── src
 │   │   └── extension.ts // Language Client entry point
+│   ├── tsconfig.json
+│   └── package.json
 ├── tsconfig.json 
 └── package.json  // The extension manifest.
 ```
