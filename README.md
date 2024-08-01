@@ -7,6 +7,8 @@
 │   │   └── extension.ts // Language Client entry point
 │   ├── tsconfig.json
 │   └── package.json
+├── server // Language Server
+│   ├── server.py    // Language Server entry point
 ├── tsconfig.json 
 └── package.json  // The extension manifest.
 ```
