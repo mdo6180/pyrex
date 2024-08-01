@@ -7,10 +7,8 @@
 	"engines": {
 		"vscode": "^1.74.0"
 	},
-	"activationEvents": [
-        "onLanguage:plaintext"
-    ],
-	"main": "./client/extension.js",
+	"activationEvents": [],
+	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -19,11 +17,21 @@
 			}
 		]
 	},
-	"scripts": {},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -watch -p ./"
+	},
 	"dependencies": {
 		"vscode-languageclient": "^9.0.1"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.73.0"
+		"@types/node": "^18",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^7.14.0",
+		"@typescript-eslint/parser": "^7.14.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.5.2"
 	}
 }

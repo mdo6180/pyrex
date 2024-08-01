@@ -1,2 +1,4 @@
-**/node_modules
-**/lsp-env
+node_modules/
+lsp-env/
+*.vsix
+out/
