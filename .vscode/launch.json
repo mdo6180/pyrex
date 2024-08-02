@@ -1,5 +1,6 @@
 {
 	"version": "0.2.0",
+	"console": "integratedTerminal",
 	"configurations": [
         {
 			"type": "extensionHost",
@@ -15,6 +16,18 @@
 				"type": "npm",
 				"script": "watch"
 			}
-		}
+		},
+		{
+            "name": "Python Attach",
+            "type": "debugpy",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "justMyCode": false,
+            "presentation": {
+                "hidden": false,
+                "group": "",
+                "order": 3
+            }
+        }
 	]
 }

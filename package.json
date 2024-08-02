@@ -12,10 +12,20 @@
 	],
 	"main": "./client/out/extension.js",
 	"contributes": {
+		"languages": [
+			{
+				"id": "python",
+				"extensions": [".py"]
+			}
+		],
 		"commands": [
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "pythonLanguageServer.start",
+				"title": "Start Python Language Server"
 			}
 		],
 		"configuration": {

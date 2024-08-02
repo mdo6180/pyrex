@@ -1,6 +1,8 @@
 from pygls.server import LanguageServer
 from lsprotocol.types import InitializeParams, InitializeResult
+from lsprotocol import types
 
+import logging
 
 
 class ExampleLanguageServer(LanguageServer):
@@ -15,18 +17,29 @@ class ExampleLanguageServer(LanguageServer):
 
 server = ExampleLanguageServer()
 
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+def log_to_output(message: str, msg_type: types.MessageType = types.MessageType.Info) -> None:
+    server.show_message_log(message, msg_type)
 
 
-@server.feature("textDocument/didOpen")
+@server.feature(types.INITIALIZE)
+def initialized(server: ExampleLanguageServer, params):
+	log_to_output(f"Extension initialized")
+
+
+@server.feature(types.TEXT_DOCUMENT_DID_OPEN)
 def did_open(server: ExampleLanguageServer, params):
-    print(f"Text document opened: {params}")
+	log_to_output(f"Text document opened")
+	#print(f"Text document opened: {params}", flush=True)
 
 
-@server.feature("textDocument/didChange")
+@server.feature(types.TEXT_DOCUMENT_DID_CHANGE)
 def did_change(server: ExampleLanguageServer, params):
-    print(f"Text document changed: {params}")
+	log_to_output(f"Text document changed")
+	#print(f"Text document changed: {params}", flush=True)
 
 
 
 if __name__ == "__main__":
-    server.start_io()
+	server.start_io()
