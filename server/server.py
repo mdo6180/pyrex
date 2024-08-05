@@ -30,14 +30,12 @@ def initialized(server: ExampleLanguageServer, params):
 
 @server.feature(types.TEXT_DOCUMENT_DID_OPEN)
 def did_open(server: ExampleLanguageServer, params):
-	log_to_output(f"Text document opened")
-	#print(f"Text document opened: {params}", flush=True)
+	log_to_output(f"Text document opened: {params.text_document.uri}")
 
 
 @server.feature(types.TEXT_DOCUMENT_DID_CHANGE)
 def did_change(server: ExampleLanguageServer, params):
-	log_to_output(f"Text document changed")
-	#print(f"Text document changed: {params}", flush=True)
+	log_to_output(f"Text document changed: {params.text_document.uri}")
 
 
 
