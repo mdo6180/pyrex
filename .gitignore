@@ -2,3 +2,4 @@
 lsp-env/
 *.vsix
 **/out/
+__pycache__/

@@ -2,12 +2,21 @@
 	"version": "0.2.0",
 	"console": "integratedTerminal",
 	"configurations": [
-        {
+		{
+			"name": "Python Debugger: Current File",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal"
+		},
+		{
 			"type": "extensionHost",
 			"request": "launch",
 			"name": "Launch Client",
 			"runtimeExecutable": "${execPath}",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}"
+			],
 			"outFiles": [
 				"${workspaceRoot}/client/out/**/*.js"
 			],
@@ -18,16 +27,16 @@
 			}
 		},
 		{
-            "name": "Python Attach",
-            "type": "debugpy",
-            "request": "attach",
-            "processId": "${command:pickProcess}",
-            "justMyCode": false,
-            "presentation": {
-                "hidden": false,
-                "group": "",
-                "order": 3
-            }
-        }
+			"name": "Python Attach",
+			"type": "debugpy",
+			"request": "attach",
+			"processId": "${command:pickProcess}",
+			"justMyCode": false,
+			"presentation": {
+				"hidden": false,
+				"group": "",
+				"order": 3
+			}
+		}
 	]
 }
